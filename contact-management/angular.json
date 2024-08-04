@@ -21,12 +21,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/leaflet/dist/leaflet.css"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies": [
-              "leaflet"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -53,12 +51,26 @@
             }
           },
           "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "contact-management:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "contact-management:build:production"
+            },
+            "development": {
+              "browserTarget": "contact-management:build:development"
+            }
+          }
         }
       }
     }
   },
   "defaultProject": "contact-management",
   "cli": {
-    "analytics": "c9f00268-4588-4ced-83c8-9163052cc6dd"
+    "analytics": "d22455ee-b5a7-4f1a-8193-4b61327f77f7"
   }
 }
