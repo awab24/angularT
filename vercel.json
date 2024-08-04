@@ -2,17 +2,14 @@
     "version": 2,
     "builds": [
       {
-        "src": "contact-management/package.json",
-        "use": "@vercel/static-build",
-        "config": {
-          "distDir": "contact-management/dist/contact-management"
-        }
+        "src": "dist/contact-management/**/*",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/contact-management/$1"
+        "dest": "/dist/contact-management/$1"
       }
     ]
   }
