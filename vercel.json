@@ -5,14 +5,14 @@
         "src": "contact-management/package.json",
         "use": "@vercel/static-build",
         "config": {
-          "distDir": "contact-management/dist"
+          "distDir": "contact-management/dist/contact-management"
         }
       }
     ],
     "routes": [
       {
         "src": "/(.*)",
-        "dest": "/index.html"
+        "dest": "/contact-management/$1"
       }
     ]
   }
