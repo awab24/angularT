@@ -8,40 +8,57 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
-    "build": {
-  "options": {
-    "outputPath": "dist/contact-management",
-    "index": "src/index.html",
-    "main": "src/main.ts",
-    "polyfills": "src/polyfills.ts",
-    "tsConfig": "tsconfig.app.json",
-    "assets": [
-      "src/favicon.ico",
-      "src/assets"
-    ],
-    "styles": [
-      "src/styles.css"
-    ],
-    "scripts": []
-  }
-}
-,
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "browserTarget": "contact-management:build"
+            "outputPath": "dist/contact-management",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.css"
+            ],
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "leaflet"
+            ]
           },
           "configurations": {
             "production": {
-              "browserTarget": "contact-management:build:production"
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "namedChunks": true,
+              "extractLicenses": false
             }
-          }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
   },
   "defaultProject": "contact-management",
   "cli": {
-    "analytics": "a8a9203c-70f7-467b-89c9-0d9d9f8d9c3a"
+    "analytics": "c9f00268-4588-4ced-83c8-9163052cc6dd"
   }
 }

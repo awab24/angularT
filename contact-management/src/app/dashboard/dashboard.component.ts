@@ -1,13 +1,14 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
+import * as L from 'leaflet';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   name: string | null = null;
   phoneNumber: string | null = null;
   email: string | null = null;
@@ -15,8 +16,8 @@ export class DashboardComponent implements OnInit {
   longitude: number | null = null;
   addresses: string[] = [];
 
-  map: any;
-  marker: any;
+  map: L.Map | undefined;
+  marker: L.Marker | undefined;
 
   constructor(
     private router: Router,
@@ -32,26 +33,28 @@ export class DashboardComponent implements OnInit {
       this.latitude = parseFloat(localStorage.getItem('latitude') || '0');
       this.longitude = parseFloat(localStorage.getItem('longitude') || '0');
       this.addresses = JSON.parse(localStorage.getItem('addresses') || '[]');
-
-      // Initialize map if latitude and longitude are available
-      if (this.latitude && this.longitude) {
-        this.loadLeaflet();
-      }
     }
   }
 
-  async loadLeaflet(): Promise<void> {
-    const L = (await import('leaflet')).default;
+  ngAfterViewInit(): void {
+    // Initialize map if latitude and longitude are available
+    if (this.latitude && this.longitude) {
+      this.loadLeaflet();
+    }
+  }
 
-    this.map = L.map('map').setView([this.latitude!, this.longitude!], 13);
+  loadLeaflet(): void {
+    if (this.latitude && this.longitude) {
+      this.map = L.map('map').setView([this.latitude, this.longitude], 13);
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(this.map);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(this.map);
 
-    this.marker = L.marker([this.latitude!, this.longitude!]).addTo(this.map)
-      .bindPopup('<b>Your Location</b>')
-      .openPopup();
+      this.marker = L.marker([this.latitude, this.longitude]).addTo(this.map)
+        .bindPopup('<b>Your Location</b>')
+        .openPopup();
+    }
   }
 
   goToAddContact(): void {
