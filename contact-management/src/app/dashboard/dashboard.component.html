@@ -1,0 +1,10 @@
+<h2>Dashboard</h2>
+<p *ngIf="name">Name: {{ name }}</p>
+<p *ngIf="phoneNumber">Phone Number: {{ phoneNumber }}</p>
+<p *ngIf="email">Email: {{ email }}</p>
+<p *ngIf="addresses.length > 0">Addresses:</p>
+<ul>
+  <li *ngFor="let address of addresses">{{ address }}</li>
+</ul>
+<div id="map" style="height: 500px;"></div>
+<button (click)="goToAddContact()">Add Contact</button>

@@ -1,0 +1,36 @@
+<h2>Add Contact</h2>
+<form [formGroup]="contactForm" (ngSubmit)="saveContact()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" formControlName="name">
+  <div *ngIf="contactForm.get('name')?.invalid && (contactForm.get('name')?.touched || contactForm.get('name')?.dirty)">
+    Name is required.
+  </div>
+
+  <label for="phoneNumber">Phone Number:</label>
+  <input type="text" id="phoneNumber" formControlName="phoneNumber">
+  <div *ngIf="contactForm.get('phoneNumber')?.invalid && (contactForm.get('phoneNumber')?.touched || contactForm.get('phoneNumber')?.dirty)">
+    Please enter a valid phone number.
+  </div>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" formControlName="email">
+  <div *ngIf="contactForm.get('email')?.invalid && (contactForm.get('email')?.touched || contactForm.get('email')?.dirty)">
+    Please enter a valid email.
+  </div>
+
+  <label for="addresses">Addresses:</label>
+  <div formArrayName="addresses">
+    <div *ngFor="let address of addresses.controls; let i = index">
+      <input type="text" [formControlName]="i">
+      <button type="button" (click)="removeAddress(i)">Remove</button>
+    </div>
+    <button type="button" (click)="addAddress()">Add Address</button>
+  </div>
+
+  <p *ngIf="latitude && longitude">
+    Latitude: {{ latitude }} <br>
+    Longitude: {{ longitude }}
+  </p>
+
+  <button type="submit" [disabled]="contactForm.invalid">Save Contact</button>
+</form>
