@@ -1,16 +1,5 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "dist/contact-management/**/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/$1"
-      }
-    ]
-  }
-  
+  "rewrites": [
+    {"source": "/(.*)", "destination": "/"}
+  ]
+}
