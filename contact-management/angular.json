@@ -50,5 +50,8 @@
       }
     }
   },
-  "defaultProject": "contact-management"
+  "defaultProject": "contact-management",
+  "cli": {
+    "analytics": false
+  }
 }
