@@ -1,0 +1,10 @@
+{
+    "root": "dist/contact-management",
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "/$1"
+      }
+    ]
+  }
+  
