@@ -1,7 +1,7 @@
 {
     "builds": [
       {
-        "src": "contact-management/angular.json",
+        "src": "contact-management/package.json",
         "use": "@vercel/static-build",
         "config": {
           "distDir": "contact-management/dist/contact-management"
@@ -15,4 +15,5 @@
       }
     ]
   }
+  
   
