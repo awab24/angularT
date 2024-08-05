@@ -1,14 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "dist/contact-management/**/*",
-        "use": "@vercel/static"
-      }
-    ],
-    "routes": [
-      { "src": "/(.*)", "dest": "/dist/contact-management/src/index.html" },
-      { "handle": "filesystem" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "dist/contact-management/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/dist/contact-management/index.html" }
+  ]
+}

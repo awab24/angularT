@@ -3,7 +3,7 @@
   "version": 1,
   "defaultProject": "contact-management",
   "projects": {
-    "your-project-name": {
+    "contact-management": {
       "projectType": "application",
       "root": "",
       "sourceRoot": "src",
