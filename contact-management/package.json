@@ -1,11 +1,12 @@
 {
   "name": "contact-management",
   "version": "0.0.0",
-  "scripts": {
-    "start": "node server.js",
-    "build": "ng build --configuration production",
-    "postinstall": "ng build --configuration production"
-  },
+"scripts": {
+  "start": "node server.js",
+  "build": "ng build --configuration production",
+  "postinstall": "ng build --configuration production"
+}
+,
   "dependencies": {
     "@angular/animations": "^12.2.0",
     "@angular/common": "^12.2.0",
