@@ -7,7 +7,6 @@
     }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/dist/contact-management/index.html" }
+    { "src": "/(.*)", "dest": "/dist/contact-management/$1" }
   ]
 }
