@@ -2,12 +2,12 @@
     "version": 2,
     "builds": [
       {
-        "src": "dist/your-project-name/**/*",
+        "src": "dist/contact-management/**/*",
         "use": "@vercel/static"
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/dist/angularT/contact-management/index.html" },
+      { "src": "/(.*)", "dest": "/dist/contact-management/index.html" },
       { "handle": "filesystem" }
     ],
     "error": {
