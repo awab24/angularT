@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "start": "node server.js",
-    "build": "ng build --prod",
-    "postinstall": "ng build --prod"
+    "build": "ng build --configuration production",
+    "postinstall": "ng build --configuration production"
   },
   "dependencies": {
     "express": "^4.18.2",

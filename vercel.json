@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "dist/your-project-name/**/*",
+        "use": "@vercel/static"
+      }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/dist/angularT/contact-management/index.html" },
+      { "handle": "filesystem" }
+    ],
+    "error": {
+      "src": "/404.html",
+      "status": 404
+    }
+  }
+  
